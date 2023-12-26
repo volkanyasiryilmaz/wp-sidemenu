@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" />
+  </head>
+
+  <body>
+    <style>
+      header {
+        display: flex;
+        width: 100%;
+      }
+
+      header > div {
+        flex: 1;
+      }
+
+      .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        width: 100%;
+        height: 100vh;
+        z-index: 9;
+      }
+      
+      
+      .sideMenu {
+        position: fixed;
+        left: -400px;
+        top: 0;
+        width: 400px;
+        height: 100vh;
+        z-index: 99;
+        background-color: #fff;
+        transition: all 700ms ease;
+      }
+
+      .sideSubMenu{
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 400px;
+        height: 100vh;
+        z-index: 8;
+        background-color: #fff;
+        transition: all 700ms ease;
+        background-color: red;
+        opacity: 0;
+      }
+      
+    </style>
+    <header>
+      <div>Logo</div>
+      <div class="sideMenuToggle">Toggle</div>
+  
+    <div class="overlay"></div>
+    <div class="sideMenu">
+      <div>
+        <img
+          src="https://www.superdiji.com/LCS/wp-content/uploads/2023/11/lcs-logo-1.png"
+          width="200px"
+        />
+      </div>
+      <ul>
+        <li>Menu item</li>
+        <li>Menu item</li>
+        <li>Menu item</li>
+        <li class="nurii subMenuToggle"><a href="nurii.html">nuriiii</a>
+          <div class="sideSubMenu">
+            <div>
+              <img
+                src="https://www.superdiji.com/LCS/wp-content/uploads/2023/11/lcs-logo-1.png"
+                width="200px"
+              />
+            </div>
+            <ul>
+              <li class="Back">Geri</li>
+              <li>Menu item</li>
+              <li>Menu item</li>
+              <li>qqq</li>
+              <li>Men aaau item</li>
+              <li>Menu item</li>
+              <li>Menu item</li>
+              <li>Menu item</li>
+              <li>Menu item</li>
+              <li>Menu item</li>
+            </ul>
+          </div>
+        </li>
+        <li>Men u item</li>
+        <li>Menu item</li>
+        <li>Menu item</li>
+        <li>Menu item</li>
+        <li>Menu item</li>
+        <li>Menu item</li>
+      </ul>
+     
+      
+    </div>
+</header>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var sideMenuToggle = document.querySelector(".sideMenuToggle");
+        var sideMenu = document.querySelector(".sideMenu");
+        var overlay = document.querySelector(".overlay");
+        var subMenuToggle = document.querySelector(".subMenuToggle")
+        var subMenu   = document.querySelector(".sideSubMenu")
+        var back = document.querySelector(".back");
+
+      
+
+        sideMenuToggle.addEventListener("click", function () {
+          overlay.style.display = "block";
+          sideMenu.style.left = 0;
+        });
+        overlay.addEventListener("click", function () {
+          overlay.style.display = "none";
+          sideMenu.style.left = "-400px"
+          subMenu.style.opacity = 0;
+        })
+        subMenuToggle.addEventListener("click", function(){
+            subMenu.style.opacity = 1;
+         
+        })
+
+        back.addEventListener("click", function(){
+            subMenu.style.opacity = 0;
+        })
+
+
+
+      });
+    </script>
+  </body>
+</html>
